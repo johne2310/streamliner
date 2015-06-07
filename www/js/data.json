@@ -1,0 +1,91 @@
+{
+  "Drugs":
+  [
+    {
+      "Drugname": "Docetaxel",
+      "DrugID": "do01",
+      "Prescribing":
+      [
+        {
+          "pbsID": "1",
+          "Indication": "Reason 1",
+          "Criteria": "Some notes on Doce 1234",
+          "Code": "1234",
+          "TumourType": "Breast"
+
+        },
+        {
+          "pbsID": "2",
+          "Indication": "Reason 2",
+          "Criteria": "Some notes on Doce 4321",
+          "Code": "4321",
+          "TumourType": "Lung"
+        },
+        {
+          "pbsID": "3",
+          "Indication": "Reason 3",
+          "Criteria": "Some notes on Doce 9876",
+          "Code": "9876",
+          "TumourType": "Breast"
+        },
+        {
+          "pbsID": "4",
+          "Indication": "Reason 4",
+          "Criteria": "Some notes on Doce 6789",
+          "Code": "6789",
+          "TumourType": "Ovarian"
+        }
+      ]
+    },
+    {
+      "Drugname": "Paclitaxel",
+      "DrugID": "pa01",
+      "Prescribing":
+      [
+        {
+          "Indication": "Reason 5",
+          "Criteria": "Some notes on pacli 1234",
+          "Code": "1234",
+          "TumourType": "Breast"
+        },
+        {
+          "Indication": "Reason 6",
+          "Criteria": "Some notes on pacli 4321",
+          "Code": "4321",
+          "TumourType": "Lung"
+        },
+        {
+          "Indication": "Reason 7",
+          "Criteria": "Some notes on pacli 9876",
+          "Code": "9876",
+          "TumourType": "Breast"
+        },
+        {
+          "Indication": "Reason 8",
+          "Criteria": "Some notes on pacli 6789",
+          "Code": "6789",
+          "TumourType": "Ovarian"
+        }
+      ]
+    },
+    {
+      "Drugname": "Cabazitaxel",
+      "DrugID": "ca01",
+      "Prescribing":
+      [
+        {
+          "Indication": "Reason 9",
+          "Criteria": "Some notes on cabaz 1234",
+          "Code": "1234",
+          "TumourType": "Breast"
+        },
+        {
+          "Indication": "Reason 10",
+          "Criteria": "Some notes on cabaz 4321",
+          "Code": "4321",
+          "TumourType": "Lung"
+        }
+      ]
+    }
+  ]
+}

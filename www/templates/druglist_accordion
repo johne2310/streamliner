@@ -1,0 +1,122 @@
+<ion-view view-title="Drug List">
+
+	<div class="bar bar-subheader
+	  item-input-inset bar-light">
+	  <label class="item-input-wrapper">
+	    <i class="icon ion-search placeholder-icon"></i>
+	    <input type="search" ng-model="query" placeholder="Search">
+	  </label>
+	</div>
+
+	<ion-content class="has-subheader padding">
+
+		<div class="day" ng-repeat="(drugIndex, drug) in drugs">
+		  <!-- <div class="item item-divider item-divider-calm"> -->
+		    <!-- {{ drug.Drugname }} -->
+		  <!-- </div><!-- item divider -->
+
+			<ion-list>
+				<ion-item class="item-dark		"
+									ng-click="toggleGroup(drug)"
+									ng-class="{active: isGroupShown(drug)}">
+						<i class="icon" ng-class="isGroupShown(drug) ? 'ion-minus' : 'ion-plus'"></i>
+					&nbsp;
+					{{ drug.Drugname }}
+				</ion-item>
+
+
+
+		    <ion-item class="item-accordion item-stable"
+		    ng-repeat="item in drug.Prescribing | filter: query"
+		    href="#"
+				ng-click="toggleGroup(drug)"
+				ng-class="{active: isGroupShown(drug)}"
+				ng-show="isGroupShown(drug)">
+
+		      <h2>{{ item.Code }}</h2>
+		      <h3>{{ item.Criteria }}</h3>
+		      <h4>{{ item.TumourType }}</h4>
+
+		      <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></button>
+		      <ion-option-button class="button-calm" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+		      <ion-option-button class="button-assertive" ng-click="onItemDelete(dayIndex, item)"><i class="icon ion-trash-a"></i></ion-option-button>
+		    </ion-item>
+		  </ion-list>
+
+		</div>
+
+
+		<ion-list>
+	    <div ng-repeat="group in groups">
+	      <ion-item class="item-stable"
+	                ng-click="toggleGroup(group)"
+	                ng-class="{active: isGroupShown(group)}">
+	          <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+	        &nbsp;
+	        Group
+	      </ion-item>
+	      <ion-item class="item-accordion"
+	                ng-repeat="item in group.items"
+	                ng-show="isGroupShown(group)">
+
+	      </ion-item>
+	    </div>
+	  </ion-list>
+
+  </ion-content>
+</ion-view>
+
+
+
+
+<ion-content class="has-header">
+  <ion-list>
+    <div ng-repeat="group in groups">
+      <ion-item class="item-stable"
+                ng-click="toggleGroup(group)"
+                ng-class="{active: isGroupShown(group)}">
+          <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+        &nbsp;
+        Group
+      </ion-item>
+      <ion-item class="item-accordion"
+                ng-repeat="item in group.items"
+                ng-show="isGroupShown(group)">
+
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+
+
+
+
+<ion-content class="has-subheader">
+<div class="day" ng-repeat="(dayIndex, day) in calendar">
+  <div class="item item-divider item-divider-calm">
+    {{day.weekday}}
+  </div><!-- item divider -->
+  <div ng-show="day.title" class="item item-list item-text-wrap dayhighlight">
+    <h2>{{day.title}}</h2>
+    {{day.description}}
+  </div><!-- day title -->
+
+  <ion-list>
+    <ion-item ng-class="{'item-avatar':item.shortname, 'star': item.star}"
+    class="item-text-wrap item-icon-right"
+    ng-repeat="item in day.schedule | filter: query"
+    href="#">
+
+      <img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} Photo">
+      <h2>{{item.time}}</h2>
+      <h3>{{item.title}}</h3>
+      <h4>{{ item.artist ? ' with ' + item.artist : ''}}</h4>
+      <p>{{ item.description }}</p>
+
+      <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></button>
+      <ion-option-button class="button-calm" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+      <ion-option-button class="button-assertive" ng-click="onItemDelete(dayIndex, item)"><i class="icon ion-trash-a"></i></ion-option-button>
+    </ion-item>
+  </ion-list>
+</div><!-- repeat days -->
+</ion-content>
