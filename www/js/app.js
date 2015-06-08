@@ -16,6 +16,9 @@
       $http.get('js/data.json').success(function(data) {
         $scope.drugs = data.Drugs;
       });
+      $scope.onTouch = function() {
+        $scope.query = null;
+      };
     }
   ]);
 

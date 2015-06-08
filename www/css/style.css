@@ -36,8 +36,8 @@ body {
   margin: 0 auto;
   margin-top: 20px;
   text-align: center;
-}
 
+}
 .tagline {
   font-size: 1.4rem;
 }
@@ -75,4 +75,11 @@ body {
   color: #417D9A;
   font-size: 2rem;
   font-weight: 200;
+}
+
+.button.button-icon.input-button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  color: #bbb;
 }
