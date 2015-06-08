@@ -1,16 +1,20 @@
 <ion-view view-title="Drug List">
   <!-- Insert subheader -->
   <div class="bar bar-subheader item-input-inset bar-light">
+
     <label class="item-input-wrapper">
       <i class="icon ion-search placeholder-icon"></i>
       <!-- Seach box -->
       <input ng-model="query" placeholder="Search" type="search">
     </label>
+    <!-- <button on-touch="onTouch()" icon="ion-ios-close-empty"></button> -->
+    <a on-touch="onTouch()" class="button button-icon icon ion-ios-close-empty"></a>
+    <!-- <a class="button button-icon icon ion-settings"></a> -->
   </div>
   <!-- End subheader -->
   <ion-content class="has-subheader padding">
 
-    <ion-list ng-repeat="(drugIndex, drug) in drugs">
+    <ion-list ng-repeat="(drugIndex, drug) in drugs | filter: query">
       <ion-item href="#/details/{{ drugIndex }}">
         {{ drug.Drugname }}
       </ion-item>
